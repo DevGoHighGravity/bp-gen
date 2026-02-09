@@ -1,0 +1,92 @@
+{
+  "plan": {
+    "name": "Support Efficiency and Experience Plan",
+    "horizon": "12 months",
+    "scope": "North America customer support operations",
+    "themes": [
+      "Cost efficiency",
+      "Customer satisfaction"
+    ]
+  },
+  "objectives": [
+    {
+      "id": "obj-1",
+      "title": "Lower cost per ticket without harming service quality",
+      "rationale": "Support costs are rising while CSAT declines.",
+      "owner_role": null,
+      "priority": "high"
+    }
+  ],
+  "kpis": [
+    {
+      "id": "kpi-1",
+      "objective_id": "obj-1",
+      "name": "Cost per ticket",
+      "definition": "Average support cost per resolved ticket.",
+      "formula": null,
+      "baseline": null,
+      "target": "Reduce by 15%",
+      "frequency": "monthly",
+      "data_source": null,
+      "leading_or_lagging": "lagging"
+    }
+  ],
+  "initiatives": [
+    {
+      "id": "init-1",
+      "name": "Automate tier-1 responses",
+      "description": "Deploy automation for common inquiries."
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "cap-1",
+      "name": "Conversational AI",
+      "description": "Ability to automate standard customer requests."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "out-1",
+      "name": "Automated FAQ workflows",
+      "description": "Live automation flows for top-tier inquiries."
+    }
+  ],
+  "links": [
+    {
+      "from_type": "objective",
+      "from_id": "obj-1",
+      "to_type": "kpi",
+      "to_id": "kpi-1",
+      "type": "objective_to_kpi"
+    },
+    {
+      "from_type": "objective",
+      "from_id": "obj-1",
+      "to_type": "initiative",
+      "to_id": "init-1",
+      "type": "objective_to_initiative"
+    },
+    {
+      "from_type": "initiative",
+      "from_id": "init-1",
+      "to_type": "capability",
+      "to_id": "cap-1",
+      "type": "initiative_to_capability"
+    },
+    {
+      "from_type": "initiative",
+      "from_id": "init-1",
+      "to_type": "output",
+      "to_id": "out-1",
+      "type": "initiative_to_output"
+    }
+  ],
+  "assumptions_and_gaps": [
+    {
+      "item": "KPI baseline, data source, and objective owner role",
+      "needed": "Confirm baseline values, authoritative data sources, and accountable owner role.",
+      "impact": "Targets cannot be validated without confirmed baselines and ownership."
+    }
+  ]
+}
