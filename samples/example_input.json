@@ -1,0 +1,28 @@
+{
+  "business_context": {
+    "scope": "North America customer support operations",
+    "time_horizon": "12 months",
+    "problem_statement": "Rising support costs and declining CSAT in priority accounts.",
+    "success_definition": "Reduce cost per ticket and restore CSAT to target levels.",
+    "plan_name": "Support Efficiency and Experience Plan"
+  },
+  "constraints": [
+    "Budget capped at $500k",
+    "No net-new headcount"
+  ],
+  "flags": {
+    "include_initiatives": true,
+    "include_capabilities": true,
+    "include_outputs": true
+  },
+  "allowed_relationships": [
+    "objective_to_kpi",
+    "objective_to_initiative",
+    "initiative_to_capability",
+    "initiative_to_output"
+  ],
+  "generation_controls": {
+    "max_objectives": "3",
+    "max_kpis_per_objective": "2"
+  }
+}
