@@ -4,9 +4,12 @@ import argparse
 import json
 from pathlib import Path
 
-from bp_gen.generator import generate_plan
-from bp_gen.models import ClarifyingQuestions, GeneratePlanRequest
-from bp_gen.validator import validate_plan
+from bp_gen.schemas import (
+    ClarifyingQuestions,
+    GeneratePlanRequest,
+    GenerationErrorResponse,
+)
+from bp_gen.services.plan_generator import generate_plan
 
 
 def _load_payload(path: Path) -> dict:
@@ -19,6 +22,11 @@ def main() -> None:
 
     generate_parser = subparsers.add_parser("generate-plan", help="Generate a plan")
     generate_parser.add_argument("--input", required=True, help="Path to JSON input file")
+    generate_parser.add_argument(
+        "--output",
+        required=True,
+        help="Path to write the generated plan JSON",
+    )
 
     args = parser.parse_args()
 
@@ -27,15 +35,16 @@ def main() -> None:
         request = GeneratePlanRequest.model_validate(payload)
         result = generate_plan(request)
 
+        output_path = Path(args.output)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        payload = result.model_dump(exclude_none=True)
+        output_path.write_text(json.dumps(payload, indent=2))
+
         if isinstance(result, ClarifyingQuestions):
-            print(json.dumps(result.model_dump(exclude_none=True), indent=2))
             return
-
-        errors = validate_plan(result, request.flags)
-        if errors:
-            raise SystemExit(f"Validation failed: {errors}")
-
-        print(json.dumps(result.model_dump(exclude_none=True), indent=2))
+        if isinstance(result, GenerationErrorResponse):
+            raise SystemExit(f"Validation failed: {payload}")
 
 
 if __name__ == "__main__":

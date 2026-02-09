@@ -137,3 +137,16 @@ class GeneratePlanResponse(BaseModel):
 
     plan: Optional[BusinessPlan] = None
     clarifying_questions: Optional[List[str]] = None
+
+
+class ClarifyingQuestions(BaseModel):
+    """Clarifying questions returned when essential context is missing."""
+
+    clarifying_questions: List[str]
+
+
+class GenerationErrorResponse(BaseModel):
+    """Validation errors returned when a generated plan is invalid."""
+
+    errors: List[Dict[str, str]] = Field(default_factory=list)
+    required_user_inputs: List[str] = Field(default_factory=list)
