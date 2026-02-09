@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "plan_id": "plan-1",
+    "title": "Business Case Plan",
+    "created_at": "2024-01-01T00:00:00Z",
+    "version": "v1"
+  },
+  "objectives": [
+    {
+      "id": "obj-1",
+      "name": "Increase retention",
+      "description": null
+    }
+  ],
+  "kpis": [
+    {
+      "id": "kpi-1",
+      "objective_id": "obj-1",
+      "name": "Retention rate",
+      "description": null,
+      "unit": null,
+      "baseline": null,
+      "target": null,
+      "data_source": null,
+      "owner": null,
+      "target_date": null
+    }
+  ],
+  "links": [
+    {
+      "id": "link-1",
+      "source_id": "obj-1",
+      "target_id": "kpi-1",
+      "type": "objective_to_kpi"
+    }
+  ],
+  "assumptions_and_gaps": [
+    {
+      "id": "gap-1",
+      "description": "Baseline, data source, owner, and target date are not provided."
+    }
+  ]
+}

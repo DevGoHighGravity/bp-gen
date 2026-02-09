@@ -1,0 +1,12 @@
+{
+  "business_context": {
+    "summary": "We need to reduce churn in the mid-market segment.",
+    "goals": ["Increase retention"]
+  },
+  "constraints": ["No new headcount in Q3"],
+  "flags": {
+    "enable_initiatives": false,
+    "enable_capabilities": false,
+    "enable_outputs": false
+  }
+}

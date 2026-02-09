@@ -1,0 +1,22 @@
+[project]
+name = "bp-gen"
+version = "0.1.0"
+description = "Business Case Generator Agent starter project"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+  "pydantic>=2.6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+bp-gen = "bp_gen.cli:main"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]
